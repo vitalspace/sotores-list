@@ -1,3 +1,5 @@
+const elem = (target) => document.querySelector(target);
+
 const openJson = async (fileName) => {
     try {
       const req = await fetch(fileName);
