@@ -22,7 +22,6 @@
       flex-direction: column;
       gap: 1.5em;
 
-
       & header > h1 {
         font-size: 18px;
       }
@@ -75,48 +74,13 @@
           }
         }
 
-        .open-store {
+        #store-list {
           display: flex;
           flex-direction: column;
-          gap: 0.5em;
-
-          > div:nth-child(1) {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            & h2,
-            span {
-              font-size: 12px;
-            }
-
-            & span {
-              background: #fb5da7;
-              color: white;
-              padding: 0.1em 0.5em;
-              border-radius: 0.5em;
-            }
-          }
-
-          & p {
-            font-size: 12px;
-          }
-
-          > div:nth-child(3) {
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-            & img {
-              width: 1.2em;
-              height: 1.2em;
-            }
-
-            & span {
-              font-size: 12px;
-            }
-          }
+          gap: 1em;
         }
 
-        .closed-store {
+        .store {
           display: flex;
           flex-direction: column;
           gap: 0.5em;
@@ -130,8 +94,15 @@
               font-size: 12px;
             }
 
-            & span {
+            .open {
               background: #20bda1;
+            }
+
+            .closed {
+              background: #fb5da7;
+            }
+
+            & span {
               color: white;
               padding: 0.1em 0.5em;
               border-radius: 0.5em;

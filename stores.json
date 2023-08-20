@@ -16,15 +16,15 @@
   {
     "name": "POINT Bergen Nord",
     "isOpen": "closed",
-    "address": "Nygårdsbroen 112, 5020 Bergen",
-    "zip": "5020",
+    "address": "Nygårdsbroen 112, 2034 Bergen",
+    "zip": "2034",
     "schedules": "10:00 - 18:00"
   },
   {
     "name": "POINT Bergen Øst",
     "isOpen": "open",
-    "address": "Olav Kyrresgate 49, 5020 Bergen",
-    "zip": "5020", 
+    "address": "Olav Kyrresgate 49, 4023 Bergen",
+    "zip": "4023", 
     "schedules": "11:00 - 21:00"
   }
 ]
