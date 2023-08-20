@@ -31,12 +31,24 @@ const openJson = async (fileName) => {
 };
 
 // Fade In Effect
-const fadeIn = (element, time) => {
+const fadeIn = async (element) => {
   element.style.opacity = 0;
+  await new Promise((resolve) => setTimeout(resolve, 100));
+  element.style.opacity = 1;
+};
 
-  setTimeout(() => {
-    element.style.opacity = 1;
-  }, time);
+// Pause between elements
+const pause = (time) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
+
+const fadeInElements = async (elements) => {
+  for (let i = 0; i < elements.length; i++) {
+    // Fade in current element
+    await fadeIn(elements[i]);
+    // Pause before next element
+    await pause(100);
+  }
 };
 
 // Render all stores to DOM
@@ -44,20 +56,14 @@ const renderStores = (stores) => {
   // Clear input and list
   elem("#zip-code").value = "";
   elem("#store-list").innerHTML = "";
+
   // Loop stores and render
   stores.map((store) => {
     elem("#store-list").innerHTML += StoreComponet(store);
   });
 
   const storesElements = document.querySelectorAll(".store");
-
-  storesElements.forEach((storeElem) => {
-    storeElem.style.opacity = 0;
-
-    setTimeout(() => {
-      storeElem.style.opacity = 1;
-    }, 100);
-  });
+  fadeInElements(storesElements);
 };
 
 // Find store by zip code
