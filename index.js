@@ -30,6 +30,15 @@ const openJson = async (fileName) => {
   }
 };
 
+// Fade In Effect
+const fadeIn = (element, time) => {
+  element.style.opacity = 0;
+
+  setTimeout(() => {
+    element.style.opacity = 1;
+  }, time);
+};
+
 // Render all stores to DOM
 const renderStores = (stores) => {
   // Clear input and list
@@ -38,6 +47,16 @@ const renderStores = (stores) => {
   // Loop stores and render
   stores.map((store) => {
     elem("#store-list").innerHTML += StoreComponet(store);
+  });
+
+  const storesElements = document.querySelectorAll(".store");
+
+  storesElements.forEach((storeElem) => {
+    storeElem.style.opacity = 0;
+
+    setTimeout(() => {
+      storeElem.style.opacity = 1;
+    }, 100);
   });
 };
 
@@ -54,12 +73,15 @@ const handleZipSearch = (e, stores) => {
 
   // Clear list, find store, render or show not found
   elem("#store-list").innerHTML = "";
-
   const store = findStore(stores, e.target.value);
 
-  store
-    ? (elem("#store-list").innerHTML += StoreComponet(store))
-    : (elem("#store-list").innerHTML = "No store found");
+  if (store) {
+    elem("#store-list").innerHTML += StoreComponet(store);
+    fadeIn(elem(".store"), 100);
+  } else {
+    elem("#store-list").innerHTML = "No store found";
+    fadeIn(elem("#store-list"), 100);
+  }
 };
 
 // App entry point
@@ -75,7 +97,7 @@ const main = async () => {
   elem("#view-all-stores").addEventListener("click", (e) =>
     renderStores(stores)
   );
-  
+
   // Initial render
   renderStores(stores);
 };
